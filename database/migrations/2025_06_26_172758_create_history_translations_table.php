@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('history_translations', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('locale');    // e.g. 'en', 'ar'
+            $table->srting('title'); 
+            $table->longText('description')->nullable();       
             $table->timestamps();
         });
     }

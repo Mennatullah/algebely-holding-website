@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('key');
+            $table->string('vlaue');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

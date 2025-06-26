@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('page_translations', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();       
+            $table->string('locale');              // e.g. 'en', 'fr'
+            $table->string('title'); 
+            $table->longText('description')->nullable();    
+            $table->longText('content')->nullable();             
             $table->timestamps();
+            $table->unique(['slug', 'locale']);
         });
     }
 

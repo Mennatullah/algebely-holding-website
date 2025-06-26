@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('histories', function (Blueprint $table) {
-            $table->id();
+            $table->increments();
+            $table->boolean('is_active')->default(1);
+            $table->integer('sort')->default(1);
             $table->timestamps();
         });
     }

@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('leaders', function (Blueprint $table) {
-            $table->id();
+            $table->increments();
+            $table->string('image');
+            $table->boolean('is_active')->default(1);
+            $table->integer('sort')->default(1);
             $table->timestamps();
         });
     }
