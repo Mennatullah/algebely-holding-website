@@ -2,11 +2,11 @@
    <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
       <div class="logo-icon">
-        <img src="{{ URL::asset('build/images/logo-icon.png') }}" class="logo-img" alt="">
+        <img src="{{ URL::asset('assets/images/logo.svg') }}" class="logo-img" alt="" style="width: 165px">
       </div>
-      <div class="logo-name flex-grow-1">
-        <h5 class="mb-0">Maxton</h5>
-      </div>
+{{--      <div class="logo-name flex-grow-1">--}}
+{{--        <h5 class="mb-0">Algebely Holding Admin Portal</h5>--}}
+{{--      </div>--}}
       <div class="sidebar-close">
         <span class="material-icons-outlined">close</span>
       </div>
@@ -69,7 +69,7 @@
               <div class="menu-title">Cards</div>
             </a>
           </li>
-          
+
           <li>
             <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><i class="material-icons-outlined">shopping_bag</i>
@@ -89,7 +89,7 @@
               </li>
               <li><a href="{{ url('/ecommerce-order-details') }}"><i class="material-icons-outlined">arrow_right</i>Order Details</a>
               </li>
-            </ul>     
+            </ul>
           </li>
           <li>
             <a class="has-arrow" href="javascript:;">
@@ -120,7 +120,7 @@
               <li><a href="{{ url('/component-paginations') }}"><i class="material-icons-outlined">arrow_right</i>Pagination</a>
               </li>
               <li><a href="{{ url('/component-popovers-tooltips') }}"><i class="material-icons-outlined">arrow_right</i>Popovers
-                  & Tooltips</a>    
+                  & Tooltips</a>
               </li>
               <li><a href="{{ url('/component-progress-bars') }}"><i class="material-icons-outlined">arrow_right</i>Progress</a>
               </li>
@@ -264,7 +264,7 @@
                     class="material-icons-outlined">arrow_right</i>Coming Soon</a>
               </li>
               <li><a href="{{ url('/pages-starter-page') }}" target="_blank"><i
-                    class="material-icons-outlined">arrow_right</i>Blank Page</a> 
+                    class="material-icons-outlined">arrow_right</i>Blank Page</a>
               </li>
             </ul>
           </li>
@@ -293,7 +293,7 @@
               <li><a href="{{ url('/charts-apex-chart') }}"><i class="material-icons-outlined">arrow_right</i>Apex</a>
               </li>
               <li><a href="{{ url('/charts-chartjs') }}"><i class="material-icons-outlined">arrow_right</i>Chartjs</a>
-              </li>   
+              </li>
             </ul>
           </li>
           <li>
