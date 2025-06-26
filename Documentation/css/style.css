@@ -1,0 +1,26 @@
+
+body{
+    font-family: "Nunito Sans", sans-serif; 
+}
+
+.bg-light{
+    background-color: #f7f7f7 !important;
+}
+a{
+    text-decoration: none;
+}
+.docs-home{
+    padding: 200px 0;
+}
+
+.shape {
+    position: absolute;
+    pointer-events: none;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+}
+.shape svg{
+    width: 100%;
+    height: auto;
+}
