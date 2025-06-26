@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('history_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('locale');    // e.g. 'en', 'ar'
-            $table->srting('title'); 
+            $table->string('title'); 
             $table->longText('description')->nullable();       
             $table->timestamps();
         });
