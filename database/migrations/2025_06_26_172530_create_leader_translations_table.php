@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('leader_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('locale');    // e.g. 'en', 'ar'
-            $table->srting('name'); 
-            $table->srting('position');       
+            $table->string('name'); 
+            $table->string('position');       
             $table->timestamps();
         });
     }
