@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('parent_id')->default(0);
+            $table->unsignedInteger('parent_id')->nullable();
             $table->boolean('is_active')->default(1);
             $table->integer('sort')->default(1);
             $table->timestamps();

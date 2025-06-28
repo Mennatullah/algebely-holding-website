@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('menu_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('locale');    // e.g. 'en', 'ar'
-            $table->string('title');        
-            $table->longText('description')->nullable();         
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('locale')->index();// e.g. 'en', 'fr'
+            $table->unique(['menu_id', 'locale']);
+            $table->string('title');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
