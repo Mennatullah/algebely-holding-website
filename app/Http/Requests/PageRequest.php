@@ -22,7 +22,7 @@ class PageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'parent_id'=>'nullable|exists:menus,id',
+            'parent_id'=>'nullable|exists:pages,id',
             'is_active'=>'nullable|boolean',
             'sort'=>'required|integer|min:0',
             'title_en'=>'required|string|max:191',

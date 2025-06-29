@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Datatables
+    Menus List
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />

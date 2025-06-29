@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Form Elements
+    Menu Edit
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-    <x-page-title title="Menu" subtitle="Menu Create" />
+    <x-page-title title="Menu" subtitle="Menu Edit" />
 
     <div class="row">
         <div class="col-xl-12 mx-auto">

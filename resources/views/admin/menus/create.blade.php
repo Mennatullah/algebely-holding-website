@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Form Elements
+    Menu Create
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">

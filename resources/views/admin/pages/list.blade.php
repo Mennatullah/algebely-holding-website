@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-    Datatables
+    Pages List
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 @endpush
 @section('content')
-    <x-page-title title="Menus" subtitle="Menus List" />
+    <x-page-title title="Pages" subtitle="Pages List" />
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <h6 class="mb-0 text-uppercase">Menus List</h6>
+        <h6 class="mb-0 text-uppercase">Pages List</h6>
         <div class="ms-auto">
             <a href="{{route('menus.create')}}" class="btn btn-outline-primary">Create New Item</a>
         </div>

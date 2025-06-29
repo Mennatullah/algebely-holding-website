@@ -34,7 +34,7 @@ class PageController extends Controller
         $item->is_active = $request->is_active ?? 0;
         $item->sort = $request->sort;
         $item->translateOrNew('en')->slug = Str::slug(strip_tags($request['title_en']));
-        $item->translateOrNew('ar')->slug = Str::slug(strip_tags($request['title_ar']));
+        $item->translateOrNew('ar')->slug = str_replace(' ', '-', strip_tags($request['title_ar']));;
         $item->translateOrNew('en')->title =  strip_tags($request['title_en']);
         $item->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $item->translateOrNew('en')->description =  strip_tags($request['description_en']);
@@ -56,7 +56,7 @@ class PageController extends Controller
         $page->is_active = $request->is_active ?? 0;
         $page->sort = $request->sort;
         $page->translateOrNew('en')->slug = Str::slug(strip_tags($request['title_en']));
-        $page->translateOrNew('ar')->slug = Str::slug(strip_tags($request['title_ar']));
+        $page->translateOrNew('ar')->slug = str_replace(' ', '-', strip_tags($request['title_ar']));;
         $page->translateOrNew('en')->title =  strip_tags($request['title_en']);
         $page->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $page->translateOrNew('en')->description =  strip_tags($request['description_en']);

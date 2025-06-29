@@ -42,6 +42,19 @@
                 </ul>
             </li>
             <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    </div>
+                    <div class="menu-title">Pages</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('pages.index')}}"><i class="material-icons-outlined">arrow_right</i>Pages List</a>
+                    </li>
+                    <li><a href="{{ route('pages.create')}}"><i class="material-icons-outlined">arrow_right</i>Pages Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="javascript:void(0);">
                     <div class="parent-icon"><i class="material-icons-outlined">description</i>
                     </div>
