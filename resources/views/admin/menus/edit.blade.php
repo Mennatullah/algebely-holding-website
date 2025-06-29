@@ -15,8 +15,8 @@
             <div class="card">
                 <div class="card-body">
                     <form action="{{route('menus.update',['menu'=>$item->id])}}" method="POST">
-                        {!!  method_field('PATCH')!!}
                         @csrf
+                        @method('PATCH')
                         <div class="mb-3">
                             <label class="form-label">Title (English):</label>
                             <input type="text" class="form-control {{ $errors->has('title_en') ? ' is-invalid' : '' }}" value="{{$item->title ?? old('title_en')}}" name="title_en">

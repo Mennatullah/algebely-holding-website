@@ -13,7 +13,8 @@
             <h6 class="mb-0 text-uppercase">Page Edit</h6>
             <hr>
             <form action="{{route('pages.update',['page'=>$item->id])}}" method="POST">
-                {!!  method_field('PATCH')!!}
+                @csrf
+                @method('PATCH')
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
@@ -29,7 +30,7 @@
                         <div class="mb-3">
                             <label class="form-label">Title (Arabic):</label>
                             <input type="text" class="form-control {{ $errors->has('title_ar') ? ' is-invalid' : '' }}"
-                                   value="{{old('title_ar')}}" name="title_ar">
+                                   value="{{$item->translate('ar')->title ?? old('title_ar')}}" name="title_ar">
                             @error('title_ar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -40,9 +41,11 @@
                             <label class="form-label">Parent Page:</label>
                             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example"
                                     name="parent_id">
-                                <option value="" selected>Please Select Parent if needed</option>
+                                <option value="" @if($item->parent_id == null) selected @endif>Please Select Parent if needed</option>
                                 @forelse ( $parents as $parent )
-                                    <option value="{{$parent->id}}">{{$parent->title}}</option>
+                                    @if($parent->id !== $item->id )
+                                        <option value="{{$parent->id}}" @if($item->parent_id == $parent->id) selected @endif>{{$parent->title}}</option>
+                                    @endif
                                 @empty
                                 @endforelse
                             </select>
@@ -80,7 +83,7 @@
                         <div class="mb-3">
                             <label class="form-label">Description (English):</label>
                             <textarea type="text" class="form-control {{ $errors->has('description_en') ? ' is-invalid' : '' }}"
-                                      name="description_en" rows="3">{{old('description_en')}}</textarea>
+                                      name="description_en" rows="3">{!! $item->description ?? old('description_en') !!}</textarea>
                             @error('description_en')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -90,7 +93,7 @@
                         <div class="mb-3">
                             <label class="form-label">Description (Arabic):</label>
                             <textarea type="text" class="form-control {{ $errors->has('description_ar') ? ' is-invalid' : '' }}"
-                                      name="description_ar" rows="3">{{old('description_ar')}}</textarea>
+                                      name="description_ar" rows="3">{!! $item->translate('ar')->description ?? old('description_ar') !!}</textarea>
                             @error('description_ar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -100,7 +103,7 @@
                         <div class="mb-3">
                             <label class="form-label">Content (English):</label>
                             <textarea type="text" class="form-control {{ $errors->has('content_en') ? ' is-invalid' : '' }}"
-                                      name="content_en" rows="7">{{old('content_en')}}</textarea>
+                                      name="content_en" rows="7">{!! $item->description ?? old('content_en') !!}</textarea>
                             @error('content_en')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -110,7 +113,7 @@
                         <div class="mb-3">
                             <label class="form-label">Content (Arabic):</label>
                             <textarea type="text" class="form-control {{ $errors->has('content_ar') ? ' is-invalid' : '' }}"
-                                      name="content_ar" rows="7">{{old('content_ar')}}</textarea>
+                                      name="content_ar" rows="7">{!! $item->translate('ar')->content ?? old('content_ar') !!}</textarea>
                             @error('content_ar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>

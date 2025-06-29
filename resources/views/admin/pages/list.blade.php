@@ -10,7 +10,7 @@
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <h6 class="mb-0 text-uppercase">Pages List</h6>
         <div class="ms-auto">
-            <a href="{{route('menus.create')}}" class="btn btn-outline-primary">Create New Item</a>
+            <a href="{{route('pages.create')}}" class="btn btn-outline-primary">Create New Item</a>
         </div>
     </div>
 
@@ -37,10 +37,10 @@
                                 <td>{{$item->sort}}</td>
                                 <td>{{$item->is_active == 1 ? 'Active' : 'Not Active'}}</td>
                                 <td>
-                                    <form action="{{route('menus.destroy',['menu'=>$item->id])}}" method="POST">
+                                    <form action="{{route('pages.destroy',['page'=>$item->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="{{route('menus.edit',['menu'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
+                                        <a href="{{route('pages.edit',['page'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
                                     </form>
                                 </td>
