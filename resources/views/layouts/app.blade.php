@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title') | Laravel 11 & Bootstrap 5 Admin Dashboard Template</title>
+    <title>@yield('title') | Algebely Holding Admin Portal</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ URL::asset('build/images/favicon-32x32.png') }}" type="image/png">
@@ -17,7 +17,7 @@
     @include('layouts.topbar')
 
     @include('layouts.sidebar')
-    
+
     <!--start main wrapper-->
     <main class="main-wrapper">
         <div class="main-content">

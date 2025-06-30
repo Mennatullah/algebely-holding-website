@@ -55,6 +55,32 @@
                 </ul>
             </li>
             <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    </div>
+                    <div class="menu-title">Leaders</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('leaders.index')}}"><i class="material-icons-outlined">arrow_right</i>Leaders List</a>
+                    </li>
+                    <li><a href="{{ route('leaders.create')}}"><i class="material-icons-outlined">arrow_right</i>Leaders Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    </div>
+                    <div class="menu-title">Settings</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('settings.index')}}"><i class="material-icons-outlined">arrow_right</i>Settings List</a>
+                    </li>
+                    <li><a href="{{ route('settings.create')}}"><i class="material-icons-outlined">arrow_right</i>Settings Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="javascript:void(0);">
                     <div class="parent-icon"><i class="material-icons-outlined">description</i>
                     </div>
