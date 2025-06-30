@@ -55,6 +55,7 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         $childrens = Menu::where('parent_id' ,$menu->id)->update(['parent_id'=>Null]);
+        $menu->deleteTranslations();
         $menu->delete();
         return redirect()->route('menus.index')->with('success', 'deleted Successfully');
     }

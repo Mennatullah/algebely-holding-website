@@ -57,8 +57,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Sort:</label>
-                            <input type="number" class="form-control {{ $errors->has('sort') ? ' is-invalid' : '' }}"
-                                   value="{{old('sort') ?? 0}}" name="sort" min="0">
+                            <input type="number" class="form-control {{ $errors->has('sort') ? ' is-invalid' : '' }}" value="{{$item->sort}}" name="sort" min="0">
                             @error('sort')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -66,9 +65,7 @@
                             @enderror
                         </div>
                         <div class="form-check form-switch mb-3">
-                            <input class="form-check-input {{ $errors->has('is_active') ? ' is-invalid' : '' }}"
-                                   value="{{old('is_active') ?? 1}}" type="checkbox" id="flexSwitchCheckChecked" checked
-                                   name="is_active">
+                            <input class="form-check-input {{ $errors->has('is_active') ? ' is-invalid' : '' }}" value="1" type="checkbox" id="flexSwitchCheckChecked" @if($item->is_active == 1) checked @endif  name="is_active">
                             <label class="form-check-label" for="flexSwitchCheckChecked">Is Active</label>
                             @error('is_active')
                             <span class="invalid-feedback">

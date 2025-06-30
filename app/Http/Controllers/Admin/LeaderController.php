@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MenuRequest;
-use App\Models\Menu;
+use App\Http\Requests\LeaderRequest;
+use App\Models\Leader;
+use Illuminate\Support\Facades\Storage;
 
 class LeaderController extends Controller
 {
@@ -16,46 +17,61 @@ class LeaderController extends Controller
      */
     public function index()
     {
-        $items = Menu::all();
-        return view('admin.menus.list',get_defined_vars());
+        $items = Leader::all();
+        return view('admin.leaders.list',get_defined_vars());
     }
 
     public function create()
     {
-        $parents = Menu::whereNull('parent_id')->get();
-        return view('admin.menus.create',get_defined_vars());
+        return view('admin.leaders.create');
     }
-    public function store(MenuRequest $request)
+    public function store(LeaderRequest $request)
     {
-        $item = new Menu();
-        $item->parent_id = $request->parent_id;
+        $item = new Leader();
         $item->is_active = $request->is_active ?? 0;
         $item->sort = $request->sort;
-        $item->translateOrNew('en')->title =  strip_tags($request['title_en']);
-        $item->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
+            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname);
+            $item->image = $filename;
+        }
+        $item->translateOrNew('en')->name =  strip_tags($request['name_en']);
+        $item->translateOrNew('ar')->name =  strip_tags($request['name_ar']);
+        $item->translateOrNew('en')->position =  strip_tags($request['position_en']);
+        $item->translateOrNew('ar')->position =  strip_tags($request['position_ar']);
         $item->save();
-        return redirect()->route('menus.index')->with('success', 'Added Successfully');
+        return redirect()->route('leaders.index')->with('success', 'Added Successfully');
     }
 
-    public function edit(Menu $menu)
+    public function edit(Leader $leader)
     {
-        $parents = Menu::whereNull('parent_id')->get();
-        return view('admin.menus.edit',['parents'=>$parents , 'item'=>$menu]);
+        return view('admin.leaders.edit',['item'=>$leader]);
     }
-    public function update(MenuRequest $request , Menu $menu)
+    public function update(LeaderRequest $request , Leader $leader)
     {
-        $menu->parent_id = $request->parent_id;
-        $menu->is_active = $request->is_active ?? 0;
-        $menu->sort = $request->sort;
-        $menu->translateOrNew('en')->title =  strip_tags($request['title_en']);
-        $menu->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
-        $menu->save();
-        return redirect()->route('menus.index')->with('success', 'updated Successfully');
+        $leader->is_active = $request->is_active ?? 0;
+        $leader->sort = $request->sort;
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
+            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname);
+            $leader->image = $filename;
+        }
+        $leader->translateOrNew('en')->name =  strip_tags($request['name_en']);
+        $leader->translateOrNew('ar')->name =  strip_tags($request['name_ar']);
+        $leader->translateOrNew('en')->position =  strip_tags($request['position_en']);
+        $leader->translateOrNew('ar')->position =  strip_tags($request['position_ar']);
+        $leader->save();
+        return redirect()->route('leaders.index')->with('success', 'updated Successfully');
     }
-    public function destroy(Menu $menu)
+    public function destroy(Leader $leader)
     {
-        $childrens = Menu::where('parent_id' ,$menu->id)->update(['parent_id'=>Null]);
-        $menu->delete();
-        return redirect()->route('menus.index')->with('success', 'deleted Successfully');
+        if(isset($leader->image)){
+            Storage::delete($leader->image);
+        }
+        $leader->deleteTranslations();
+        $leader->delete();
+        return redirect()->route('leaders.index')->with('success', 'deleted Successfully');
     }
 }

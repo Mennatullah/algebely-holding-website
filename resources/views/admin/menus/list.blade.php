@@ -35,7 +35,13 @@
                                 <td>@if($item->parent_id) - @endif{{$item->title}}</td>
                                 <td>{{$item->parent?->title}}</td>
                                 <td>{{$item->sort}}</td>
-                                <td>{{$item->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+                                <td>
+                                    @if($item->is_active == 1)
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">Active</p>
+                                    @else
+                                        <p class="dash-lable mb-0 bg-danger bg-opacity-10 text-danger rounded-2">Not Active</p>
+                                    @endif
+                                </td>
                                 <td>
                                     <form action="{{route('menus.destroy',['menu'=>$item->id])}}" method="POST">
                                         @method('DELETE')

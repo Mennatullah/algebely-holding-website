@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('title')
-    Menus List
+    Leaders List
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 @endpush
 @section('content')
-    <x-page-title title="Menus" subtitle="Menus List" />
+    <x-page-title title="Leaders" subtitle="Leaders List" />
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <h6 class="mb-0 text-uppercase">Menus List</h6>
+        <h6 class="mb-0 text-uppercase">Leaders List</h6>
         <div class="ms-auto">
-            <a href="{{route('menus.create')}}" class="btn btn-outline-primary">Create New Item</a>
+            <a href="{{route('leaders.create')}}" class="btn btn-outline-primary">Create New Item</a>
         </div>
     </div>
 
@@ -22,8 +22,8 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Parent</th>
+                            <th>Name</th>
+                            <th>Position</th>
                             <th>Sort</th>
                             <th>Is Active</th>
                             <th>Actions</th>
@@ -32,15 +32,21 @@
                     <tbody>
                         @forelse ( $items as $item )
                             <tr>
-                                <td>@if($item->parent_id) - @endif{{$item->title}}</td>
-                                <td>{{$item->parent?->title}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->position}}</td>
                                 <td>{{$item->sort}}</td>
-                                <td>{{$item->is_active == 1 ? 'Active' : 'Not Active'}}</td>
                                 <td>
-                                    <form action="{{route('menus.destroy',['menu'=>$item->id])}}" method="POST">
+                                    @if($item->is_active == 1)
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">Active</p>
+                                    @else
+                                        <p class="dash-lable mb-0 bg-danger bg-opacity-10 text-danger rounded-2">Not Active</p>
+                                    @endif
+                                </td>
+                                <td>
+                                    <form action="{{route('leaders.destroy',['leader'=>$item->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="{{route('menus.edit',['menu'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
+                                        <a href="{{route('leaders.edit',['leader'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
                                     </form>
                                 </td>
@@ -52,8 +58,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Title</th>
-                            <th>Parent</th>
+                            <th>Name</th>
+                            <th>Position</th>
                             <th>Sort</th>
                             <th>Is Active</th>
                             <th>Actions</th>

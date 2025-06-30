@@ -1,61 +1,35 @@
 @extends('layouts.app')
 @section('title')
-    Menu Edit
+    Setting Edit
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-    <x-page-title title="Menu" subtitle="Menu Edit" />
+    <x-page-title title="Setting" subtitle="Setting Edit" />
 
     <div class="row">
         <div class="col-xl-12 mx-auto">
-            <h6 class="mb-0 text-uppercase">Menu Input</h6>
+            <h6 class="mb-0 text-uppercase">Setting Input</h6>
             <hr>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('menus.update',['menu'=>$item->id])}}" method="POST">
+                    <form action="{{route('settings.update',['setting'=>$item->id])}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">
-                            <label class="form-label">Title (English):</label>
-                            <input type="text" class="form-control {{ $errors->has('title_en') ? ' is-invalid' : '' }}" value="{{$item->title ?? old('title_en')}}" name="title_en">
-                            @error('title_en')
+                            <label class="form-label">Key:</label>
+                            <input type="text" class="form-control {{ $errors->has('key') ? ' is-invalid' : '' }}" value="{{$item->key ?? old('key')}}" name="key">
+                            @error('key')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Title (Arabic):</label>
-                            <input type="text" class="form-control {{ $errors->has('title_ar') ? ' is-invalid' : '' }}" value="{{$item->translate('ar')->title ?? old('title_ar')}}" name="title_ar">
-                            @error('title_ar')
-                            <span class="invalid-feedback">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Parent Menu:</label>
-                            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
-                                <option value="" @if($item->parent_id == null) selected @endif>Please Select Parent if needed</option>
-                                @forelse ( $parents as $parent )
-                                    @if($parent->id !== $item->id )
-                                        <option value="{{$parent->id}}" @if($item->parent_id == $parent->id) selected @endif>{{$parent->title}}</option>
-                                    @endif
-                                @empty
-                                @endforelse
-                            </select>
-                            @error('parent_id')
-                            <span class="invalid-feedback">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Sort:</label>
-                            <input type="number" class="form-control {{ $errors->has('sort') ? ' is-invalid' : '' }}" value="{{$item->sort}}" name="sort" min="0">
-                            @error('sort')
+                            <label class="form-label">Value:</label>
+                            <input type="text" class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}" value="{{$item->value ?? old('value')}}" name="value">
+                            @error('value')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>

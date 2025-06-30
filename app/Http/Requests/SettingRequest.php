@@ -22,11 +22,9 @@ class SettingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'parent_id'=>'nullable|exists:menus,id',
+            'key'=>'required|string|max:191',
+            'value'=>'required|string|max:191',
             'is_active'=>'nullable|boolean',
-            'sort'=>'required|integer|min:0',
-            'title_en'=>'required|string|max:191',
-            'title_ar'=>'required|string|max:191',
         ];
     }
 }

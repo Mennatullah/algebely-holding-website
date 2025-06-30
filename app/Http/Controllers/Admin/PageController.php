@@ -69,6 +69,7 @@ class PageController extends Controller
     public function destroy(Page $page)
     {
         $childrens = Page::where('parent_id' ,$page->id)->update(['parent_id'=>Null]);
+        $page->deleteTranslations();
         $page->delete();
         return redirect()->route('pages.index')->with('success', 'deleted Successfully');
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key');
-            $table->string('vlaue');
+            $table->string('value');
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });

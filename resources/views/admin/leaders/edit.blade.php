@@ -1,52 +1,70 @@
 @extends('layouts.app')
 @section('title')
-    Menu Edit
+    Leader Edit
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
+    <style>
+        .hai-img {
+            width: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+    </style>
 @endpush
 @section('content')
-    <x-page-title title="Menu" subtitle="Menu Edit" />
+    <x-page-title title="Leader" subtitle="Leader Edit" />
 
     <div class="row">
         <div class="col-xl-12 mx-auto">
-            <h6 class="mb-0 text-uppercase">Menu Input</h6>
+            <h6 class="mb-0 text-uppercase">Leader Input</h6>
             <hr>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('menus.update',['menu'=>$item->id])}}" method="POST">
+                    <form action="{{route('leaders.update',['leader'=>$item->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">
-                            <label class="form-label">Title (English):</label>
-                            <input type="text" class="form-control {{ $errors->has('title_en') ? ' is-invalid' : '' }}" value="{{$item->title ?? old('title_en')}}" name="title_en">
-                            @error('title_en')
+                            <label class="form-label">Name (English):</label>
+                            <input type="text" class="form-control {{ $errors->has('name_en') ? ' is-invalid' : '' }}" value="{{$item->name ?? old('name_en')}}" name="name_en">
+                            @error('name_en')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Title (Arabic):</label>
-                            <input type="text" class="form-control {{ $errors->has('title_ar') ? ' is-invalid' : '' }}" value="{{$item->translate('ar')->title ?? old('title_ar')}}" name="title_ar">
-                            @error('title_ar')
+                            <label class="form-label">Name (Arabic):</label>
+                            <input type="text" class="form-control {{ $errors->has('name_ar') ? ' is-invalid' : '' }}" value="{{$item->translate('ar')->name ?? old('name_ar')}}" name="name_ar">
+                            @error('name_ar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Parent Menu:</label>
-                            <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example" name="parent_id">
-                                <option value="" @if($item->parent_id == null) selected @endif>Please Select Parent if needed</option>
-                                @forelse ( $parents as $parent )
-                                    @if($parent->id !== $item->id )
-                                        <option value="{{$parent->id}}" @if($item->parent_id == $parent->id) selected @endif>{{$parent->title}}</option>
-                                    @endif
-                                @empty
-                                @endforelse
-                            </select>
-                            @error('parent_id')
+                            <label class="form-label">Position (English):</label>
+                            <input type="text" class="form-control {{ $errors->has('position_en') ? ' is-invalid' : '' }}" value="{{$item->position ?? old('position_en')}}" name="position_en">
+                            @error('position_en')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Position (Arabic):</label>
+                            <input type="text" class="form-control {{ $errors->has('position_ar') ? ' is-invalid' : '' }}" value="{{$item->translate('ar')->position ?? old('position_ar')}}" name="position_ar">
+                            @error('position_ar')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image:</label>
+                            <img src="{{isset($item) && isset($item->image) ? asset('storage/'.$item->image) : ''}}" alt="store image" class="hai-img">
+                            <input class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" type="file" id="formFile" name="image">
+                            @error('image')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MenuRequest;
-use App\Models\Menu;
+use App\Http\Requests\SettingRequest;
+use App\Models\Setting;
 
 class SettingController extends Controller
 {
@@ -16,46 +16,39 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $items = Menu::all();
-        return view('admin.menus.list',get_defined_vars());
+        $items = Setting::all();
+        return view('admin.settings.list',get_defined_vars());
     }
 
     public function create()
     {
-        $parents = Menu::whereNull('parent_id')->get();
-        return view('admin.menus.create',get_defined_vars());
+        return view('admin.settings.create');
     }
-    public function store(MenuRequest $request)
+    public function store(SettingRequest $request)
     {
-        $item = new Menu();
-        $item->parent_id = $request->parent_id;
+        $item = new Setting();
+        $item->key = $request->key;
+        $item->value = $request->value;
         $item->is_active = $request->is_active ?? 0;
-        $item->sort = $request->sort;
-        $item->translateOrNew('en')->title =  strip_tags($request['title_en']);
-        $item->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $item->save();
-        return redirect()->route('menus.index')->with('success', 'Added Successfully');
+        return redirect()->route('settings.index')->with('success', 'Added Successfully');
     }
 
-    public function edit(Menu $menu)
+    public function edit(Setting $setting)
     {
-        $parents = Menu::whereNull('parent_id')->get();
-        return view('admin.menus.edit',['parents'=>$parents , 'item'=>$menu]);
+        return view('admin.settings.edit',['item'=>$setting]);
     }
-    public function update(MenuRequest $request , Menu $menu)
+    public function update(SettingRequest $request , Setting $setting)
     {
-        $menu->parent_id = $request->parent_id;
-        $menu->is_active = $request->is_active ?? 0;
-        $menu->sort = $request->sort;
-        $menu->translateOrNew('en')->title =  strip_tags($request['title_en']);
-        $menu->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
-        $menu->save();
-        return redirect()->route('menus.index')->with('success', 'updated Successfully');
+        $setting->key = $request->key;
+        $setting->value = $request->value;
+        $setting->is_active = $request->is_active ?? 0;
+        $setting->save();
+        return redirect()->route('settings.index')->with('success', 'updated Successfully');
     }
-    public function destroy(Menu $menu)
+    public function destroy(Setting $setting)
     {
-        $childrens = Menu::where('parent_id' ,$menu->id)->update(['parent_id'=>Null]);
-        $menu->delete();
-        return redirect()->route('menus.index')->with('success', 'deleted Successfully');
+        $setting->delete();
+        return redirect()->route('settings.index')->with('success', 'deleted Successfully');
     }
 }

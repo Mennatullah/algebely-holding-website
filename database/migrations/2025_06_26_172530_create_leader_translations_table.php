@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('leader_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('locale');    // e.g. 'en', 'ar'
-            $table->string('name'); 
-            $table->string('position');       
+            $table->unsignedBigInteger('leader_id');
+            $table->foreign('leader_id')->references('id')->on('leaders')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('locale')->index();// e.g. 'en', 'fr'
+            $table->unique(['leader_id', 'locale']);    // e.g. 'en', 'ar'
+            $table->string('name');
+            $table->string('position');
             $table->timestamps();
         });
     }

@@ -22,11 +22,13 @@ class LeaderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'parent_id'=>'nullable|exists:menus,id',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'is_active'=>'nullable|boolean',
             'sort'=>'required|integer|min:0',
-            'title_en'=>'required|string|max:191',
-            'title_ar'=>'required|string|max:191',
+            'name_en'=>'required|string|max:191',
+            'name_ar'=>'required|string|max:191',
+            'position_en'=>'required|string|max:191',
+            'position_ar'=>'required|string|max:191',
         ];
     }
 }

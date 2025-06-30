@@ -43,7 +43,7 @@
             </li>
             <li>
                 <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">description</i>
                     </div>
                     <div class="menu-title">Pages</div>
                 </a>
@@ -56,7 +56,7 @@
             </li>
             <li>
                 <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">fitbit</i>
                     </div>
                     <div class="menu-title">Leaders</div>
                 </a>
@@ -69,7 +69,7 @@
             </li>
             <li>
                 <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">toc</i>
+                    <div class="parent-icon"><i class="material-icons-outlined">face_5</i>
                     </div>
                     <div class="menu-title">Settings</div>
                 </a>
