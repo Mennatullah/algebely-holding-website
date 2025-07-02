@@ -4,6 +4,13 @@
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
+    <style>
+        .hai-img {
+            width: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+    </style>
 @endpush
 @section('content')
     <x-page-title title="Page" subtitle="Page Edit" />

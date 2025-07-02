@@ -26,8 +26,6 @@ class ContactController extends Controller
     }
     public function update(ContactRequest $request , Contact $contact)
     {
-        $contact->key = $request->key;
-        $contact->value = $request->value;
         $contact->is_active = $request->is_active ?? 0;
         $contact->save();
         return redirect()->route('contacts.index')->with('success', 'updated Successfully');

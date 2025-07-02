@@ -19,8 +19,9 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Key</th>
-                            <th>Value</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Type</th>
                             <th>Is Active</th>
                             <th>Actions</th>
                         </tr>
@@ -28,8 +29,9 @@
                     <tbody>
                         @forelse ( $items as $item )
                             <tr>
-                                <td>{{$item->key}}</td>
-                                <td>{{$item->value}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->phone}}</td>
+                                <td>{{$item->type}}</td>
                                 <td>
                                     @if($item->is_active == 1)
                                         <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">Active</p>
@@ -38,10 +40,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="{{route('contacts.destroy',['setting'=>$item->id])}}" method="POST">
+                                    <form action="{{route('contacts.destroy',['contact'=>$item->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="{{route('contacts.edit',['setting'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
+                                        <a href="{{route('contacts.edit',['contact'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
                                     </form>
                                 </td>
@@ -53,8 +55,9 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Key</th>
-                            <th>Value</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Type</th>
                             <th>Is Active</th>
                             <th>Actions</th>
                         </tr>

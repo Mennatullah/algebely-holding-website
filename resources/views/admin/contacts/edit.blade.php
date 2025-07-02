@@ -1,35 +1,69 @@
 @extends('layouts.app')
 @section('title')
-    Setting Edit
+    Contact Edit
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-    <x-page-title title="Setting" subtitle="Setting Edit" />
+    <x-page-title title="Contact" subtitle="Contact Edit" />
 
     <div class="row">
         <div class="col-xl-12 mx-auto">
-            <h6 class="mb-0 text-uppercase">Setting Input</h6>
+            <h6 class="mb-0 text-uppercase">Contact Input</h6>
             <hr>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('settings.update',['setting'=>$item->id])}}" method="POST">
+                    <form action="{{route('contacts.update',['contact'=>$item->id])}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">
-                            <label class="form-label">Key:</label>
-                            <input type="text" class="form-control {{ $errors->has('key') ? ' is-invalid' : '' }}" value="{{$item->key ?? old('key')}}" name="key">
-                            @error('key')
+                            <label class="form-label">Name:</label>
+                            <input type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{$item->name ?? old('name')}}" name="name" disabled>
+                            @error('name')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Value:</label>
-                            <input type="text" class="form-control {{ $errors->has('value') ? ' is-invalid' : '' }}" value="{{$item->value ?? old('value')}}" name="value">
-                            @error('value')
+                            <label class="form-label">Phone:</label>
+                            <input type="text" class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" value="{{$item->phone ?? old('phone')}}" name="phone" disabled>
+                            @error('phone')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email:</label>
+                            <input type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{$item->email ?? old('email')}}" name="email" disabled>
+                            @error('email')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Type:</label>
+                            <input type="text" class="form-control {{ $errors->has('type') ? ' is-invalid' : '' }}" value="{{$item->type ?? old('type')}}" name="type" disabled>
+                            @error('type')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        @if(isset($item) && isset($item->cv))
+                        <div class="mb-3">
+                            <label class="form-label">CV:</label>
+                            <a href="{{asset('storage/'.$item->cv)}}" target="_blank" class="dash-lable mb-0 bg-success bg-opacity-10 text-primary rounded-2">Please check cv</a>
+                        </div>
+                        @endif
+                        <div class="mb-3">
+                            <label class="form-label">Message:</label>
+                            <textarea type="text" class="form-control {{ $errors->has('message') ? ' is-invalid' : '' }}"
+                                      name="message" rows="3" disabled>{!! $item->message ?? old('message') !!}</textarea>
+                            @error('message')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>
