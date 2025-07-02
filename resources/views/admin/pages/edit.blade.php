@@ -12,7 +12,7 @@
         <div class="col-xl-12 mx-auto">
             <h6 class="mb-0 text-uppercase">Page Edit</h6>
             <hr>
-            <form action="{{route('pages.update',['page'=>$item->id])}}" method="POST">
+            <form action="{{route('pages.update',['page'=>$item->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="card">
@@ -112,6 +112,25 @@
                             <textarea type="text" class="form-control {{ $errors->has('content_ar') ? ' is-invalid' : '' }}"
                                       name="content_ar" rows="7">{!! $item->translate('ar')->content ?? old('content_ar') !!}</textarea>
                             @error('content_ar')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Link:</label>
+                            <input type="text" class="form-control {{ $errors->has('link') ? ' is-invalid' : '' }}" value="{{$item->link ?? old('link')}}" name="link">
+                            @error('link')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image:</label>
+                            <img src="{{isset($item) && isset($item->image) ? asset('storage/'.$item->image) : ''}}" alt="store image" class="hai-img">
+                            <input class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" type="file" id="formFile" name="image">
+                            @error('image')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>

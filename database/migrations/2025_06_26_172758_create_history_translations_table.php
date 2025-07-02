@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('history_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('locale');    // e.g. 'en', 'ar'
-            $table->string('title'); 
-            $table->longText('description')->nullable();       
+            $table->unsignedBigInteger('history_id');
+            $table->foreign('history_id')->references('id')->on('histories')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('locale')->index();// e.g. 'en', 'fr'
+            $table->unique(['history_id', 'locale']);
+            $table->string('title');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

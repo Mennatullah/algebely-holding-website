@@ -12,7 +12,7 @@
         <div class="col-xl-12 mx-auto">
             <h6 class="mb-0 text-uppercase">Page Input</h6>
             <hr>
-            <form action="{{route('pages.store')}}" method="POST">@csrf
+            <form action="{{route('pages.store')}}" method="POST" enctype="multipart/form-data">@csrf
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
@@ -111,6 +111,24 @@
                             <textarea type="text" class="form-control {{ $errors->has('content_ar') ? ' is-invalid' : '' }}"
                                       name="content_ar" rows="7">{{old('content_ar')}}</textarea>
                             @error('content_ar')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Link:</label>
+                            <input type="text" class="form-control {{ $errors->has('link') ? ' is-invalid' : '' }}" value="{{old('link')}}" name="link">
+                            @error('link')
+                            <span class="invalid-feedback">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image:</label>
+                            <input class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" type="file" id="formFile" name="image">
+                            @error('image')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
                             </span>

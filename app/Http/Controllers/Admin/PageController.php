@@ -33,6 +33,13 @@ class PageController extends Controller
         $item->parent_id = $request->parent_id;
         $item->is_active = $request->is_active ?? 0;
         $item->sort = $request->sort;
+        $item->link = $request->link;
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
+            $filename = $request->file('image')->storeAs('images/pages', $fileoriginname,'public');
+            $item->image = $filename;
+        }
         $item->translateOrNew('en')->slug = Str::slug(strip_tags($request['title_en']));
         $item->translateOrNew('ar')->slug = str_replace(' ', '-', strip_tags($request['title_ar']));;
         $item->translateOrNew('en')->title =  strip_tags($request['title_en']);
@@ -55,6 +62,13 @@ class PageController extends Controller
         $page->parent_id = $request->parent_id;
         $page->is_active = $request->is_active ?? 0;
         $page->sort = $request->sort;
+        $page->link = $request->link;
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
+            $filename = $request->file('image')->storeAs('images/pages', $fileoriginname,'public');
+            $page->image = $filename;
+        }
         $page->translateOrNew('en')->slug = Str::slug(strip_tags($request['title_en']));
         $page->translateOrNew('ar')->slug = str_replace(' ', '-', strip_tags($request['title_ar']));;
         $page->translateOrNew('en')->title =  strip_tags($request['title_en']);

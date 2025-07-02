@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Page extends Model implements TranslatableContract
+class History extends Model implements TranslatableContract
 {
     use Translatable;
     use HasFactory, Notifiable;
@@ -21,18 +21,16 @@ class Page extends Model implements TranslatableContract
     protected $fillable = [
         'parent_id',
         'is_active',
-        'sort',
-        'link',
-        'image',
+        'sort'
     ];
-    public $translatedAttributes = ['slug','title','description','content'];
+    public $translatedAttributes = ['title' ,'description'];
 
     public function parent()
     {
-        return $this->belongsTo(Page::class,'parent_id');
+        return $this->belongsTo(History::class,'parent_id');
     }
     public function childrens()
     {
-        return $this->hasMany(Page::class,'parent_id');
+        return $this->hasMany(History::class,'parent_id');
     }
 }

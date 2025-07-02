@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('parent_id')->nullable();
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
             $table->boolean('is_active')->default(1);
             $table->integer('sort')->default(1);
             $table->timestamps();

@@ -33,7 +33,7 @@ class LeaderController extends Controller
         if($request->hasfile('image')){
             $file = $request->file('image');
             $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
-            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname);
+            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname,'public');
             $item->image = $filename;
         }
         $item->translateOrNew('en')->name =  strip_tags($request['name_en']);
@@ -55,7 +55,7 @@ class LeaderController extends Controller
         if($request->hasfile('image')){
             $file = $request->file('image');
             $fileoriginname =time().'-'.strtolower(preg_replace('/\s+/', '-', $file->getClientOriginalName()));
-            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname);
+            $filename = $request->file('image')->storeAs('images/leaders', $fileoriginname,'public');
             $leader->image = $filename;
         }
         $leader->translateOrNew('en')->name =  strip_tags($request['name_en']);

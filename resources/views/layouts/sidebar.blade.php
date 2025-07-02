@@ -81,17 +81,23 @@
                 </ul>
             </li>
             <li>
-                <a href="javascript:void(0);">
-                    <div class="parent-icon"><i class="material-icons-outlined">description</i>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">help_outline</i>
                     </div>
-                    <div class="menu-title">Documentation</div>
+                    <div class="menu-title">History</div>
                 </a>
+                <ul>
+                    <li><a href="{{ route('histories.index')}}"><i class="material-icons-outlined">arrow_right</i>History List</a>
+                    </li>
+                    <li><a href="{{ route('histories.create')}}"><i class="material-icons-outlined">arrow_right</i>History Create</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="javascript:void(0);">
+                <a href="{{ route('contacts.index')}}">
                     <div class="parent-icon"><i class="material-icons-outlined">support</i>
                     </div>
-                    <div class="menu-title">Support</div>
+                    <div class="menu-title">Contacts</div>
                 </a>
             </li>
         </ul>

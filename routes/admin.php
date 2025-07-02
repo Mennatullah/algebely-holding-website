@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HistoryController;
 use App\Http\Controllers\Admin\LeaderController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\PageController;
@@ -11,4 +12,6 @@ Route::group(['prefix' => 'admin',   'namespace' => 'App\Http\Controllers\Admin'
     Route::resource('pages', PageController::class);
     Route::resource('leaders', LeaderController::class);
     Route::resource('settings', SettingController::class);
+    Route::resource('histories', HistoryController::class);
+    Route::resource('contacts', ContactController::class);
 });
