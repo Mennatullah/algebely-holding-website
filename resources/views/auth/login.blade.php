@@ -91,11 +91,11 @@
                                         </div>
                                     </div>
 
-                                    @if (Route::has('password.request'))
-                                        <div class="col-md-6 text-end"> <a href="{{ route('password.request') }}">Forgot
-                                                Password ?</a>
-                                        </div>
-                                    @endif
+{{--                                    @if (Route::has('password.request'))--}}
+{{--                                        <div class="col-md-6 text-end"> <a href="{{ route('password.request') }}">Forgot--}}
+{{--                                                Password ?</a>--}}
+{{--                                        </div>--}}
+{{--                                    @endif--}}
 
                                     <div class="col-12">
                                         <div class="d-grid">
@@ -103,13 +103,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div class="text-start">
-                                            <p class="mb-0">Don't have an account yet? <a
-                                                    href="{{ route('register') }}">Sign Up</a>
-                                            </p>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-12">--}}
+{{--                                        <div class="text-start">--}}
+{{--                                            <p class="mb-0">Don't have an account yet? <a--}}
+{{--                                                    href="{{ route('register') }}">Sign Up</a>--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </form>
                             </div>
 

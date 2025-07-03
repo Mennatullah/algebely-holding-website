@@ -94,6 +94,19 @@
                 </ul>
             </li>
             <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">person</i>
+                    </div>
+                    <div class="menu-title">Admin</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('users.index')}}"><i class="material-icons-outlined">arrow_right</i>Admin List</a>
+                    </li>
+                    <li><a href="{{ route('users.create')}}"><i class="material-icons-outlined">arrow_right</i>Admin Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="{{ route('contacts.index')}}">
                     <div class="parent-icon"><i class="material-icons-outlined">support</i>
                     </div>
