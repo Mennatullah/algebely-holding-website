@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Page Edit
+    Page & Section Edit
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
@@ -13,11 +13,11 @@
     </style>
 @endpush
 @section('content')
-    <x-page-title title="Page" subtitle="Page Edit" />
+    <x-page-title title="Page" subtitle="Page & Section Edit" />
 
     <div class="row">
         <div class="col-xl-12 mx-auto">
-            <h6 class="mb-0 text-uppercase">Page Edit</h6>
+            <h6 class="mb-0 text-uppercase">Page & Section Edit</h6>
             <hr>
             <form action="{{route('pages.update',['page'=>$item->id])}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -45,7 +45,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Parent Page:</label>
+                            <label class="form-label">Main Page:</label>
                             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example"
                                     name="parent_id">
                                 <option value="" @if($item->parent_id == null) selected @endif>Please Select Parent if needed</option>
@@ -144,7 +144,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <button type="submit" class="btn btn-grd-primary px-4">Submit</button>
                         </div>
                     </div>
                 </div>

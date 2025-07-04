@@ -43,32 +43,6 @@
             </li>
             <li>
                 <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">description</i>
-                    </div>
-                    <div class="menu-title">Pages</div>
-                </a>
-                <ul>
-                    <li><a href="{{ route('pages.index')}}"><i class="material-icons-outlined">arrow_right</i>Pages List</a>
-                    </li>
-                    <li><a href="{{ route('pages.create')}}"><i class="material-icons-outlined">arrow_right</i>Pages Create</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">fitbit</i>
-                    </div>
-                    <div class="menu-title">Leaders</div>
-                </a>
-                <ul>
-                    <li><a href="{{ route('leaders.index')}}"><i class="material-icons-outlined">arrow_right</i>Leaders List</a>
-                    </li>
-                    <li><a href="{{ route('leaders.create')}}"><i class="material-icons-outlined">arrow_right</i>Leaders Create</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="has-arrow" href="javascript:;">
                     <div class="parent-icon"><i class="material-icons-outlined">face_5</i>
                     </div>
                     <div class="menu-title">Settings</div>
@@ -77,19 +51,6 @@
                     <li><a href="{{ route('settings.index')}}"><i class="material-icons-outlined">arrow_right</i>Settings List</a>
                     </li>
                     <li><a href="{{ route('settings.create')}}"><i class="material-icons-outlined">arrow_right</i>Settings Create</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="has-arrow" href="javascript:;">
-                    <div class="parent-icon"><i class="material-icons-outlined">help_outline</i>
-                    </div>
-                    <div class="menu-title">History</div>
-                </a>
-                <ul>
-                    <li><a href="{{ route('histories.index')}}"><i class="material-icons-outlined">arrow_right</i>History List</a>
-                    </li>
-                    <li><a href="{{ route('histories.create')}}"><i class="material-icons-outlined">arrow_right</i>History Create</a>
                     </li>
                 </ul>
             </li>
@@ -113,6 +74,61 @@
                     <div class="menu-title">Contacts</div>
                 </a>
             </li>
+            <li class="menu-label">Content</li>
+            <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">description</i>
+                    </div>
+                    <div class="menu-title">Pages & Sections</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('pages.index')}}"><i class="material-icons-outlined">arrow_right</i>Pages List</a>
+                    </li>
+                    <li><a href="{{ route('pages.create')}}"><i class="material-icons-outlined">arrow_right</i>Pages Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">api</i>
+                    </div>
+                    <div class="menu-title">Sectors & Companies</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('sectors.index')}}"><i class="material-icons-outlined">arrow_right</i>Sectors List</a>
+                    </li>
+                    <li><a href="{{ route('sectors.create')}}"><i class="material-icons-outlined">arrow_right</i>Sectors Create</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">fitbit</i>
+                    </div>
+                    <div class="menu-title">Leaders</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('leaders.index')}}"><i class="material-icons-outlined">arrow_right</i>Leaders List</a>
+                    </li>
+                    <li><a href="{{ route('leaders.create')}}"><i class="material-icons-outlined">arrow_right</i>Leaders Create</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="has-arrow" href="javascript:;">
+                    <div class="parent-icon"><i class="material-icons-outlined">help_outline</i>
+                    </div>
+                    <div class="menu-title">History</div>
+                </a>
+                <ul>
+                    <li><a href="{{ route('histories.index')}}"><i class="material-icons-outlined">arrow_right</i>History List</a>
+                    </li>
+                    <li><a href="{{ route('histories.create')}}"><i class="material-icons-outlined">arrow_right</i>History Create</a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
         <!--end navigation-->
     </div>

@@ -22,7 +22,7 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Type</th>
-                            <th>Is Active</th>
+                            <th>Is Replied</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,9 +34,9 @@
                                 <td>{{$item->type}}</td>
                                 <td>
                                     @if($item->is_active == 1)
-                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">Active</p>
+                                        <p class="dash-lable mb-0 bg-success bg-opacity-10 text-success rounded-2">Replied</p>
                                     @else
-                                        <p class="dash-lable mb-0 bg-danger bg-opacity-10 text-danger rounded-2">Not Active</p>
+                                        <p class="dash-lable mb-0 bg-danger bg-opacity-10 text-danger rounded-2">Not Replied</p>
                                     @endif
                                 </td>
                                 <td>
@@ -58,7 +58,7 @@
                             <th>Name</th>
                             <th>Phone</th>
                             <th>Type</th>
-                            <th>Is Active</th>
+                            <th>Is Replied</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>

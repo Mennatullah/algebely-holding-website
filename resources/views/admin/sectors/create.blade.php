@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('title')
-    Page & Section Create
+    Sector & Company Create
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet">
 @endpush
 @section('content')
-    <x-page-title title="Page" subtitle="Page & Section Create"/>
+    <x-page-title title="Sector" subtitle="Sector & Company Create"/>
 
     <div class="row">
         <div class="col-xl-12 mx-auto">
-            <h6 class="mb-0 text-uppercase">Page & Section Input</h6>
+            <h6 class="mb-0 text-uppercase">Sector Input</h6>
             <hr>
-            <form action="{{route('pages.store')}}" method="POST" enctype="multipart/form-data">@csrf
+            <form action="{{route('sectors.store')}}" method="POST" enctype="multipart/form-data">@csrf
                 <div class="card">
                     <div class="card-body">
                         <div class="mb-3">
@@ -36,7 +36,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Main Page:</label>
+                            <label class="form-label">Main Sector:</label>
                             <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example"
                                     name="parent_id">
                                 <option value="" selected>Please Select Parent if needed</option>

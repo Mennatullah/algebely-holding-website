@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('title')
-    Pages & Sections List
+    Sectors & Companies List
 @endsection
 @push('css')
     <link href="{{ URL::asset('build/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
 @endpush
 @section('content')
-    <x-page-title title="Pages" subtitle="Pages List" />
+    <x-page-title title="Sectors" subtitle="Sectors & Companies List" />
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <h6 class="mb-0 text-uppercase">Pages & Sections List</h6>
+        <h6 class="mb-0 text-uppercase">Sectors & Companies List</h6>
         <div class="ms-auto">
-            <a href="{{route('pages.create')}}" class="btn btn-outline-primary">Create New Item</a>
+            <a href="{{route('sectors.create')}}" class="btn btn-outline-primary">Create New Item</a>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
                     <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Main Page</th>
+                            <th>Main Sector</th>
                             <th>Sort</th>
                             <th>Is Active</th>
                             <th>Actions</th>
@@ -43,10 +43,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <form action="{{route('pages.destroy',['page'=>$item->id])}}" method="POST">
+                                    <form action="{{route('sectors.destroy',['sector'=>$item->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="{{route('pages.edit',['page'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
+                                        <a href="{{route('sectors.edit',['sector'=>$item->id])}}" class="btn btn-outline-primary">Edit</a>
                                         <button type="submit" class="btn btn-outline-danger">Delete</button>
                                     </form>
                                 </td>
@@ -59,7 +59,7 @@
                     <tfoot>
                         <tr>
                             <th>Title</th>
-                            <th>Main Page</th>
+                            <th>Main Sector</th>
                             <th>Sort</th>
                             <th>Is Active</th>
                             <th>Actions</th>

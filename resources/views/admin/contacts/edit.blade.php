@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input {{ $errors->has('is_active') ? ' is-invalid' : '' }}" value="1" type="checkbox" id="flexSwitchCheckChecked" @if($item->is_active == 1) checked @endif  name="is_active">
-                            <label class="form-check-label" for="flexSwitchCheckChecked">Is Active</label>
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Is Replied</label>
                             @error('is_active')
                             <span class="invalid-feedback">
                                 <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <button type="submit" class="btn btn-grd-primary px-4">Submit</button>
                         </div>
                     </form>
                 </div>
