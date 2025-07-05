@@ -18,7 +18,13 @@ class PageController extends Controller
      */
     public function show($slug) : \Illuminate\Http\JsonResponse
     {
-        $item = Page::whereTranslation('slug', $slug, app()->getLocale())->firstOrFail();
+        $item = Page::whereTranslation('slug', $slug, app()->getLocale())->first();
+        if (!$item) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('Page not found')
+            ], 404);
+        }
         return response()->json([
             'status' => 'success',
             'data' => $item
