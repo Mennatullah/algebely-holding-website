@@ -16,4 +16,8 @@ class SectorTranslation extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = ['sector_id', 'locale' , 'slug','title','description','content'];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }

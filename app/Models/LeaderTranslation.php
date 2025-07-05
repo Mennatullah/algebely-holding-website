@@ -18,4 +18,8 @@ class LeaderTranslation extends Authenticatable
     protected $fillable = [
         'leader_id', 'locale' , 'name' ,'position'
     ];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }

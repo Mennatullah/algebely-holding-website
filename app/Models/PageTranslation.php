@@ -16,4 +16,8 @@ class PageTranslation extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = ['page_id', 'locale' , 'slug','title','description','content'];
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
