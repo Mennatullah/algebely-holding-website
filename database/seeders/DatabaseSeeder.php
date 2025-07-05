@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
@@ -39,6 +38,10 @@ class DatabaseSeeder extends Seeder
             'message' => 'Please check my message',
             'cv' => null,
             'is_active' => 1,
+        ]);
+        $this->call([
+            MenuSeeder::class,
+            PageSeeder::class,
         ]);
     }
 }
