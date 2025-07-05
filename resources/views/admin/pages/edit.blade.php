@@ -82,7 +82,7 @@
                                     <textarea type="text"
                                               class="form-control summernote {{ $errors->has('content_en') ? ' is-invalid' : '' }}"
                                               name="content_en"
-                                              rows="7">{!! $item->description ?? old('content_en') !!}</textarea>
+                                              rows="7">{!! $item->content ?? old('content_en') !!}</textarea>
                                     @error('content_en')
                                     <span class="invalid-feedback">
                                         <strong>{{ $message }}</strong>
@@ -149,7 +149,7 @@
                                     <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example"
                                             name="parent_id">
                                         <option value="" @if($item->parent_id == null) selected @endif>Please Select
-                                            Parent if needed
+                                            Page if needed
                                         </option>
                                         @forelse ( $parents as $parent )
                                             @if($parent->id !== $item->id )

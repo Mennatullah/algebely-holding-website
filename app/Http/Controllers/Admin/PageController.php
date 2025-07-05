@@ -46,8 +46,8 @@ class PageController extends Controller
         $item->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $item->translateOrNew('en')->description =  strip_tags($request['description_en']);
         $item->translateOrNew('ar')->description =  strip_tags($request['description_ar']);
-        $item->translateOrNew('en')->content =  strip_tags($request['content_en']);
-        $item->translateOrNew('ar')->content =  strip_tags($request['content_ar']);
+        $item->translateOrNew('en')->content =  $request['content_en'];
+        $item->translateOrNew('ar')->content =  $request['content_ar'];
         $item->save();
         return redirect()->route('pages.index')->with('success', 'Added Successfully');
     }
@@ -75,8 +75,8 @@ class PageController extends Controller
         $page->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $page->translateOrNew('en')->description =  strip_tags($request['description_en']);
         $page->translateOrNew('ar')->description =  strip_tags($request['description_ar']);
-        $page->translateOrNew('en')->content =  strip_tags($request['content_en']);
-        $page->translateOrNew('ar')->content =  strip_tags($request['content_ar']);
+        $page->translateOrNew('en')->content =  $request['content_en'];
+        $page->translateOrNew('ar')->content =  $request['content_ar'];
         $page->save();
         return redirect()->route('pages.index')->with('success', 'updated Successfully');
     }

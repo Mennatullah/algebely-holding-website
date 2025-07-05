@@ -46,8 +46,8 @@ class SectorController extends Controller
         $item->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $item->translateOrNew('en')->description =  strip_tags($request['description_en']);
         $item->translateOrNew('ar')->description =  strip_tags($request['description_ar']);
-        $item->translateOrNew('en')->content =  strip_tags($request['content_en']);
-        $item->translateOrNew('ar')->content =  strip_tags($request['content_ar']);
+        $item->translateOrNew('en')->content =  $request['content_en'];
+        $item->translateOrNew('ar')->content =  $request['content_ar'];
         $item->save();
         return redirect()->route('sectors.index')->with('success', 'Added Successfully');
     }
@@ -75,8 +75,8 @@ class SectorController extends Controller
         $sector->translateOrNew('ar')->title =  strip_tags($request['title_ar']);
         $sector->translateOrNew('en')->description =  strip_tags($request['description_en']);
         $sector->translateOrNew('ar')->description =  strip_tags($request['description_ar']);
-        $sector->translateOrNew('en')->content =  strip_tags($request['content_en']);
-        $sector->translateOrNew('ar')->content =  strip_tags($request['content_ar']);
+        $sector->translateOrNew('en')->content =  $request['content_en'];
+        $sector->translateOrNew('ar')->content =  $request['content_ar'];
         $sector->save();
         return redirect()->route('sectors.index')->with('success', 'updated Successfully');
     }
